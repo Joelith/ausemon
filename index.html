@@ -11,7 +11,7 @@
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-name">Ausémon</h1>
+      <h1 class="project-name"><img width="350px;" src="imgs/ausemon_title.png"/></h1>
       <h2 class="project-tagline">Gotta See &#39;em all</h2>
       <a href="https://github.com/Joelith/ausemon-frontend" class="btn">Frontend Code</a>
       <a href="https://github.com/Joelith/ausemon-backend" class="btn">Backend Code</a>
@@ -44,8 +44,8 @@
 
 <p>Ausémon uses a number of datasets, but could easily be extended to utilise more.  The Canberra Centenary Trail location, or spatial, data comes from the ACT Government open data website; these data were split into two GeoJSON datasets, cleaned, and stored locally for use by the application.  The animal location comes from the Atlas of Living Australia Specimen and Observation Data Searching API.  We were originally planning on calling this API in real-time from the application, but found that it needed a vast aount of cleaning and enrichment; the API was used to extract the data and stored locally for use by the application.</p>
 
-
-<!--<iframe src="https://player.vimeo.com/video/175634842" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/175634842">IoT Demo at National Security Summit 2016</a> from <a href="https://vimeo.com/user54589239">Joel Nation</a> on <a href="https://vimeo.com">Vimeo</a>.</p>-->
+<iframe src="https://player.vimeo.com/video/176903634" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/176903634">GovHack 2016 Canberra Ausémon</a> from <a href="https://vimeo.com/user54876580">James Ryles</a> on <a href="https://vimeo.com">Vimeo</a>
 
 <h3>
 <a id="about-us" class="anchor" href="#about-us" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Us - Team rgb(255,0,0)</h3>
@@ -90,15 +90,25 @@ You will need to download and clean the data from Atlas of Living Australia if y
 If you are not using the Mobile Cloud Service you will need to modify the API calls to point to your back-end service (this will require some re-work as we rely on the Mobile Cloud Service SDK to do most of this)</p>
 
 <h3>
-<a id="design" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GovHack - Evidence</h3>
-<p>We tweeted pretty extensively during the hack, so you can see a lot of our progress (and wins/frustrations) over the weekend. Take a look at <a href="twitter.com/Joelith">Joel's</> or <a href="twitter.com/psyex">Damien's</a> twitter feed for more messages and photos</p>
+<a id="design" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GovHack</h3>
+<p>This application was developed for the GovHack 2016 competition in Canberra. We tweeted pretty extensively during the hack, so you can see a lot of our progress (and wins/frustrations) over the weekend. Take a look at <a href="twitter.com/Joelith">Joel's</> or <a href="twitter.com/psyex">Damien's</a> twitter feed for more messages and photos</p>
 
 <p>We relied on the Oracle Developer Cloud Service environment provided with our Cloud Subscriptions to manage the devops process and track tasks</p>
 
 <img src="imgs/dev_cs.png"/>
 <small>Our Agile board at one point</small><br/>
 
-
+<h4>Data Wrangling</h4>
+<ol>
+  <li>We started with the geospatial data for the Canberra Centenary Trail provided by the ACT goverment</li>
+  <li>The open source tool uDig was used to define a bounding polygon around the Centenary Trail</li>
+  <li>The web service API provided by the Atlas of Living Australia to download all occurrence records for animals that have been observed within the bounding polygon around the Centenary Trail</li>
+  <li>The occurrence records for the 250 most-observed animals were then imported into a Oracle database</li>
+  <li>Description data for each of the top 250 animals was imported into the database. This data was also sourced from the Atlas of Living Australia</li>
+  <li>An API was then built on top of the database which provides information on animals that have been sighted near a given location along the Centenary Trail. This makes use of the geospatial functionality provided in the enterprise edition of Oracle Database.</li>
+</ol>
+<img src="imgs/wrangling_1.png" />
+<img src="imgs/wrangling_2.png" />
 
 <br/>
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
