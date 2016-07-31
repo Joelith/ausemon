@@ -51,6 +51,19 @@
   <li>Either zip up the directory (and remove the oracledb bpm) and upload to ACCS. Otherwise deploy to your node server</li>
   <li>Start with `node index.js`</li>
 </ul>
+You will need to download and clean the data from Atlas of Living Australia if you want any data
+
+<h4><a href="https://github.com/Joelith/ausemon-mcs"></a>ausemon-mcs</a></h4>
+<p>This project contains an export of the project used to power the API and analytics for the front-end. You can either deploy this into your Oracle Mobile Cloud Service or alternatively modify the front-end UI to point to the back-end directly. You will lose the analytical and user management capabilities the Mobile Cloud Service provides to the app though.</p>
+
+<h4><a href="https://github.com/Joelith/ausemon-frontend"></a>ausemon-backend</a></h4>
+<p>This project is contains the ionic-based app that powers the Ausemon front-end. Instructions for use are:</p>
+<ul>
+  <li>Ensure your ionic framework is installed and configured</li>
+  <li>Modify the mobile cloud service configuration in www/js/services.js to reflect your mobile cloud service configuration</li>
+  <li>Download the code and run with 'ionic serve browser'</li>
+</ul>
+If you are not using the Mobile Cloud Service you will need to modify the API calls to point to your back-end service (this will require some re-work as we rely on the Mobile Cloud Service SDK to do most of this)</p>
 
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
 
