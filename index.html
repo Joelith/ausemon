@@ -22,8 +22,8 @@
       <h3>
 <a id="intro" class="anchor" href="#intro" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ausémon - Explore the Centenary Trail.</h3>
 
-<p>Ausemon is an online web page/app that encourages people to discover the wonder and bio-diversity of the ACT Centenary Trail.</p>
-
+<p>Ausémon is a mobile application aimed at getting more people exploring and enjoying the Canberra Centenary Trail.  It provides a fun and educational guide for the trail and the types of animals you could expect to see.  Ausémon is gameified in the style of Pokémon Go to provide additional appeal to youth.  Getting people outside and walking supports the Healthy Canberra initiative.</p>
+<p>Ausémon uses a number of datasets, but could easily be extended to utilise more.  The Canberra Centenary Trail location, or spatial, data comes from the ACT Government open data website; these data were split into two GeoJSON datasets, cleaned, and stored locally for use by the application.  The animal location comes from the Atlas of Living Australia Specimen and Observation Data Searching API.  We were originally planning on calling this API in real-time from the application, but found that it needed a vast aount of cleaning and enrichment; the API was used to extract the data and stored locally for use by the application.</p>
 <h3>
 <a id="about-us" class="anchor" href="#about-us" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About Us - Team rgb(255,0,0)</h3>
 
@@ -39,8 +39,18 @@
 <h3>
 <a id="design" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design</h3>
 
-<p>Design. Discuss code bases</p>
+<p>From a technical point of view, Ausémon is a typical 3-tier application with a front-end mobile application, a back-end database, and a middle-tier providing integration logic.  The mobile application is built using Ionic and Google Maps API, then packaged inside a Cordova container for installation on a smartphone.  All of the data has been stored in Oracle Database Cloud Service to take advantage of the spatial querying features; this significantly simplified the querying of data based on location, distance, and geofencing.  And lastly, the middle-tier consists of the Oracle Mobile Cloud Service (MCS) to talk to the database (through Oracle Application Container Cloud Service for simplicity) and expose those data as APIs to be called by the mobile application.  MCS also manages API security and provides analytics of the usage of Ausémon.</p>
 
+<p>If you'd like to use this code, please check out the various GitHub projects that support it</p>
+<h4><a href="https://github.com/Joelith/ausemon-backend"></a>ausemon-backend</a></h4>
+<p>This project is designed to run in Oracle Application Container Cloud Service, though it could run in any NodeJs server with OracleDB support. Instructions for use are:</p>
+<ul>
+  <li>First instantiate your Database Cloud Service (or Oracle Database with Spatial support) and run the provided DDLs</li>
+  <li>We use the `process.env` variables to control connection details to the service. These are available in ACCS, but you may need to modify them to suit your environment.</li>
+  <li>If you want to run locally, before starting the node project run `npm install oracledb`. You will need to have the Oracle Instance Client installed</li>
+  <li>Either zip up the directory (and remove the oracledb bpm) and upload to ACCS. Otherwise deploy to your node server</li>
+  <li>Start with `node index.js`</li>
+</ul>
 
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
 
